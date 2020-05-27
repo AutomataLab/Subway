@@ -33,7 +33,7 @@ tools/converter path_to_Graph.el
 tools/converter path_to_Graph.wel
 ```
 
-The first command converts ABC.el to the binary CSR format and makes the binary graph file with .bcsr extension into the same directory as the original file. The second command converts ABC.wel and makes the weighted binary graph file with .bwcsr extension.
+The first command converts Graph.el to the binary CSR format and makes the binary graph file with .bcsr extension into the same directory as the original file. The second command converts Graph.wel and makes the weighted binary graph file with .bwcsr extension.
 
 #### Running applications in Subway
 The applications take the input graph as input as well as some optional arguments. For example:
