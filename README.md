@@ -1,5 +1,6 @@
 ## Subway
-Subway: Minimizing Data Transfer during Out-of-GPU-Memory Graph Processing
+Subway is an Out-of-GPU-Memory Graph Processing frameworks for GPU platforms.
+Subway provides a highly cost-effective solution to extracting a subgraph that only consists of the edges of active vertices. As a consequence, the volume of data transfer between CPU and GPU is dramatically reduced. The benefits from data transfer reduction outweigh the costs of subgraph generation in (almost) all iterations of graph processing, bringing in substantial overall performance improvements.
 
 #### Compilation
 
