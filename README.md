@@ -11,7 +11,7 @@ Subway accepts edge-list (.el) and weighted edge-list (.wel) graph formats, as w
 
 Subway is sensitive to graph file extension. A weighted edge-list graph file has to finish with .wel characters. The followings are two graph file examples.
 
-ABC.el ("SOURCE DESTINATION" for each edge in each line)
+ABC.el ("SOURCE DESTINATION" for each edge in each line):
 ```
 0 1
 0 3
@@ -19,7 +19,7 @@ ABC.el ("SOURCE DESTINATION" for each edge in each line)
 1 2
 ```
 
-ABC.wel ("SOURCE DESTINATION WEIGHT" for each edge in each line)
+ABC.wel ("SOURCE DESTINATION WEIGHT" for each edge in each line):
 ```
 0 1 26
 0 3 33
