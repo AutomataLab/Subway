@@ -11,7 +11,7 @@ Subway accepts edge-list (.el) and weighted edge-list (.wel) graph formats, as w
 
 Subway is sensitive to graph file extension. A weighted edge-list graph file has to finish with .wel characters. The followings are two graph file examples.
 
-ABC.el ("SOURCE DESTINATION" for each edge in each line):
+Graph.el ("SOURCE DESTINATION" for each edge in each line):
 ```
 0 1
 0 3
@@ -19,7 +19,7 @@ ABC.el ("SOURCE DESTINATION" for each edge in each line):
 1 2
 ```
 
-ABC.wel ("SOURCE DESTINATION WEIGHT" for each edge in each line):
+Graph.wel ("SOURCE DESTINATION WEIGHT" for each edge in each line):
 ```
 0 1 26
 0 3 33
@@ -29,8 +29,8 @@ ABC.wel ("SOURCE DESTINATION WEIGHT" for each edge in each line):
 
 To convert these graph files to binary format, run the following commands in the root:
 ```
-tools/converter path_to_ABC.el
-tools/converter path_to_ABC.wel
+tools/converter path_to_Graph.el
+tools/converter path_to_Graph.wel
 ```
 
 The first command converts ABC.el to the binary CSR format and makes the binary graph file with .bcsr extension into the same directory as the original file. The second command converts ABC.wel and makes the weighted binary graph file with .bwcsr extension.
