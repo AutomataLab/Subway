@@ -126,7 +126,7 @@ int main(int argc, char** argv)
 	
 	gpuErrorcheck(cudaMemcpy(graph.value, graph.d_value, graph.num_nodes*sizeof(uint), cudaMemcpyDeviceToHost));
 	
-	utilities::PrintResults(graph.value, 30);
+	utilities::PrintResults(graph.value, min(30, graph.num_nodes));
 		
 	//for(int i=0; i<20; i++)
 	//	cout << graph.value[i] << endl;
