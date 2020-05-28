@@ -1,7 +1,7 @@
 ## Subway
 Subway is an out-of-GPU-memory graph processing framework.
 
-Subway provides a highly cost-effective solution to extracting a subgraph that only consists of the edges of active vertices. This allows it to transfer only the active parts of the graph from CPU to GPU, thus dramatically reduces the volume of data transfer. The benefits from the data transfer reduction outweigh the costs of subgraph generation in (almost) all iterations of graph processing, bringing in substantial overall performance improvements.
+Subway provides a highly cost-effective solution to extracting a subgraph that only consists of the edges of active vertices. This allows it to transfer only the active parts of the graph from CPU to GPU, thus dramatically reduces the volume of data transfer. The benefits from the data transfer reduction outweigh the costs of subgraph generation in (almost) all iterations of graph processing, bringing in substantial overall performance improvements. Moreover, it supports asynchronous processing between the loaded subgraph in GPU and the rest of the graph in host memory, which tends to decrease the number of global iterations, thus can further reduce the data transfer.
 
 #### Compilation
 
