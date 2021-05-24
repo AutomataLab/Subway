@@ -32,6 +32,32 @@ public:
     void ReadGraph();
 };
 
+template <class E>
+class GraphPR
+{
+private:
+
+public:
+	string graphFilePath;
+	bool isWeighted;
+	bool isLarge;
+	uint num_nodes;
+	uint num_edges;
+	uint *nodePointer;
+	E *edgeList;
+	uint *outDegree;
+	float *value;
+	float *delta;
+	uint *d_outDegree;
+	float *d_value;
+	float *d_delta;
+	string graphFormat;
+    GraphPR(string graphFilePath, bool isWeighted);
+    string GetFileExtension(string fileName);
+    void AssignW8(uint w8, uint index);
+    void ReadGraph();
+};
+
 #endif	//	GRAPH_CUH
 
 

@@ -24,7 +24,9 @@ public:
 	unsigned int *d_prefixLabeling;
 	unsigned int *d_prefixSumDegrees;
 	SubgraphGenerator(Graph<E> &graph);
+	SubgraphGenerator(GraphPR<E> &graph);
 	void generate(Graph<E> &graph, Subgraph<E> &subgraph);
+	void generate(GraphPR<E> &graph, Subgraph<E> &subgraph, float acc);
 };
 
 #endif	//	SUBGRAPH_GENERATOR_HPP

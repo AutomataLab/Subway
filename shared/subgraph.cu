@@ -22,6 +22,7 @@ Subgraph<E>::Subgraph(uint num_nodes, uint num_edges)
 	cudaProfilerStop();
 	
 	max_partition_size = 0.9 * (dev.totalGlobalMem - 8*4*num_nodes) / sizeof(E);
+	//max_partition_size = 1000000000;
 	
 	if(max_partition_size > DIST_INFINITY)
 		max_partition_size = DIST_INFINITY;

@@ -208,6 +208,51 @@ __global__ void sswp_kernel(unsigned int numNodes,
 	}
 }
 
+__global__ void pr_kernel(unsigned int numNodes,
+							unsigned int from,
+							unsigned int numPartitionedEdges,
+							unsigned int *activeNodes,
+							unsigned int *activeNodesPointer,
+							OutEdge *edgeList,
+							unsigned int *outDegree,
+							float *dist,
+							float *delta,
+							//bool *finished,
+							float acc)
+{
+	unsigned int tId = blockDim.x * blockIdx.x + threadIdx.x;
+
+	if(tId < numNodes)
+	{
+		unsigned int id = activeNodes[from + tId];
+		unsigned int degree = outDegree[id];
+		float thisDelta = delta[id];
+
+		if(thisDelta > acc)
+		{
+			dist[id] += thisDelta;
+			
+			if(degree != 0)
+			{
+				//*finished = false;
+				
+				float sourcePR = ((float) thisDelta / degree) * 0.85;
+
+				unsigned int thisfrom = activeNodesPointer[from+tId]-numPartitionedEdges;
+				unsigned int thisto = thisfrom + degree;
+				
+				for(unsigned int i=thisfrom; i<thisto; i++)
+				{
+					atomicAdd(&delta[edgeList[i].end], sourcePR);
+				}				
+			}
+			
+			atomicAdd(&delta[id], -thisDelta);
+		}
+		
+	}
+}
+
 
 __global__ void bfs_async(unsigned int numNodes,
 							unsigned int from,
@@ -407,6 +452,52 @@ __global__ void cc_async(unsigned int numNodes,
 				label2[edgeList[i].end] = true;
 			}
 		}
+	}
+}
+
+
+__global__ void pr_async(unsigned int numNodes,
+							unsigned int from,
+							unsigned int numPartitionedEdges,
+							unsigned int *activeNodes,
+							unsigned int *activeNodesPointer,
+							OutEdge *edgeList,
+							unsigned int *outDegree,
+							float *dist,
+							float *delta,
+							bool *finished,
+							float acc)
+{
+	unsigned int tId = blockDim.x * blockIdx.x + threadIdx.x;
+
+	if(tId < numNodes)
+	{
+		unsigned int id = activeNodes[from + tId];
+		unsigned int degree = outDegree[id];
+		float thisDelta = delta[id];
+
+		if(thisDelta > acc)
+		{
+			dist[id] += thisDelta;
+			
+			if(degree != 0)
+			{
+				*finished = false;
+				
+				float sourcePR = ((float) thisDelta / degree) * 0.85;
+
+				unsigned int thisfrom = activeNodesPointer[from+tId]-numPartitionedEdges;
+				unsigned int thisto = thisfrom + degree;
+				
+				for(unsigned int i=thisfrom; i<thisto; i++)
+				{
+					atomicAdd(&delta[edgeList[i].end], sourcePR);
+				}				
+			}
+			
+			atomicAdd(&delta[id], -thisDelta);
+		}
+		
 	}
 }
 
