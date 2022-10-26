@@ -1,5 +1,5 @@
-#ifndef	GPU_ERROR_CHECK_CUH
-#define	GPU_ERROR_CHECK_CUH
+#ifndef    GPU_ERROR_CHECK_CUH
+#define    GPU_ERROR_CHECK_CUH
 
 //#include <string>
 //#include <sstream>
@@ -15,4 +15,4 @@ inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort=t
    }
 }
 
-#endif	//	GPU_ERROR_CHECK_CUH
+#endif    //    GPU_ERROR_CHECK_CUH

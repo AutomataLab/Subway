@@ -15,21 +15,21 @@ class SubgraphGenerator
 private:
 
 public:
-	unsigned int *activeNodesLabeling;
-	unsigned int *activeNodesDegree;
-	unsigned int *prefixLabeling;
-	unsigned int *prefixSumDegrees;
-	unsigned int *d_activeNodesLabeling;
-	unsigned int *d_activeNodesDegree;
-	unsigned int *d_prefixLabeling;
-	unsigned int *d_prefixSumDegrees;
-	SubgraphGenerator(Graph<E> &graph);
-	SubgraphGenerator(GraphPR<E> &graph);
-	void generate(Graph<E> &graph, Subgraph<E> &subgraph);
-	void generate(GraphPR<E> &graph, Subgraph<E> &subgraph, float acc);
+    uint *activeNodesLabeling;
+    uint *activeNodesDegree;
+    uint *prefixLabeling;
+    ull *prefixSumDegrees;
+    uint *d_activeNodesLabeling;
+    uint *d_activeNodesDegree;
+    uint *d_prefixLabeling;
+    ull *d_prefixSumDegrees;
+    SubgraphGenerator(Graph<E> &graph);
+    SubgraphGenerator(GraphPR<E> &graph);
+    void generate(Graph<E> &graph, Subgraph<E> &subgraph);
+    void generate(GraphPR<E> &graph, Subgraph<E> &subgraph, float acc);
 };
 
-#endif	//	SUBGRAPH_GENERATOR_HPP
+#endif    //    SUBGRAPH_GENERATOR_HPP
 
 
 

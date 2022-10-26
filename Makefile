@@ -2,8 +2,10 @@
 
 CC=g++
 NC=nvcc
-CFLAGS=-std=c++11 -O3
-NFLAGS=-arch=sm_60
+CFLAGS=-std=c++14 -O3
+
+#Tesla T4: sm_75  A100: sm_80
+NFLAGS=-arch=sm_75
 
 SHARED=shared
 SUBWAY=subway
@@ -14,13 +16,13 @@ DEP=$(SHARED)/timer.o $(SHARED)/argument_parsing.o $(SHARED)/graph.o $(SHARED)/s
 all: make1 make2 make3 bfs-sync cc-sync sssp-sync sswp-sync pr-sync bfs-async cc-async sssp-async sswp-async pr-async
 
 make1:
-	make -C $(SHARED)
+	make -C $(SHARED) NFLAGS=${NFLAGS}
 
 make2:
-	make -C $(SUBWAY)
+	make -C $(SUBWAY) NFLAGS=${NFLAGS}
 
 make3:
-	make -C $(TOOLS)
+	make -C $(TOOLS) NFLAGS=${NFLAGS}
 
 
 bfs-sync: $(SUBWAY)/bfs-sync.o $(DEP)
