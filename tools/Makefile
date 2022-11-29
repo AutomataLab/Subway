@@ -1,15 +1,16 @@
 
 CC=g++
 NC=nvcc
-CFLAGS=-std=c++11 -O3
-NFLAGS=-arch=sm_60
+CFLAGS=-std=c++14 -O3
+
+#NFLAGS=-arch=sm_80
 
 SHARED=../shared
 
-all: converter
+all: converter_stdin
 
-converter: converter.cpp
-	$(CC) converter.cpp -o converter $(CFLAGS)
+converter_stdin: converter_stdin.cpp
+	$(CC) converter_stdin.cpp -o converter_stdin $(CFLAGS)
 			
 clean:
-	rm -f converter
+	rm -f converter_stdin

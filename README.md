@@ -29,13 +29,15 @@ Graph.wel ("SOURCE DESTINATION WEIGHT" for each edge in each line):
 1 2 10
 ```
 
+TAB is used as delimiter in both el and wel graph format.
+
 To convert these graph files to the binary format, run the following commands in the root folder:
 ```
-tools/converter path_to_Graph.el
-tools/converter path_to_Graph.wel
+cat path_to_Graph.el|tools/converter_stdin el output_filename.bcsr
+cat path_to_Graph.wel|tools/converter_stdin wel output_filename.bwcsr
 ```
 
-The first command converts Graph.el to the binary CSR format and generates a binary graph file with .bcsr extension under the same directory as the original file. The second command converts Graph.wel to a weighted binary graph file with .bwcsr extension.
+The first command converts Graph.el to the binary CSR format and generates a binary graph file with bcsr extension.  The second command converts Graph.wel to a weighted binary graph file with .bwcsr extension.
 
 #### Running applications in Subway
 The applications take a graph as input as well as some optional arguments. For example:

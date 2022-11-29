@@ -40,12 +40,12 @@ struct OutEdgeWeighted{
 };
 
 struct Edge{
-	uint source;
+    uint source;
     uint end;
 };
 
 struct EdgeWeighted{
-	uint source;
+    uint source;
     uint end;
     uint w8;
 };
@@ -53,4 +53,4 @@ struct EdgeWeighted{
 
 
 
-#endif 	//	GLOBALS_HPP
+#endif     //    GLOBALS_HPP

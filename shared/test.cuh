@@ -7,10 +7,10 @@ class Test
 private:
 
 public:
-	int a;
-	int b;
+    int a;
+    int b;
     Test();
     int sum(int a, int b);
 };
 
-#endif	//	TEST_HPP
+#endif    //    TEST_HPP

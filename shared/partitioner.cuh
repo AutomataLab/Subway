@@ -11,17 +11,17 @@ class Partitioner
 private:
 
 public:
-	uint numPartitions;
-	vector<uint> fromNode;
-	vector<uint> fromEdge;
-	vector<uint> partitionNodeSize;
-	vector<uint> partitionEdgeSize;
-	Partitioner();
+    uint numPartitions;
+    vector<uint> fromNode;
+    vector<ull> fromEdge;
+    vector<uint> partitionNodeSize;
+    vector<ull> partitionEdgeSize;
+    Partitioner();
     void partition(Subgraph<E> &subgraph, uint numActiveNodes);
     void reset();
 };
 
-#endif	//	PARTITIONER_CUH
+#endif    //    PARTITIONER_CUH
 
 
 

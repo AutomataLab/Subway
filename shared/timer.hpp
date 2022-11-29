@@ -10,14 +10,14 @@
 class Timer
 {
 private:
-	//chrono::time_point<chrono::system_clock> A, B;
-	timeval StartingTime;
+    //chrono::time_point<chrono::system_clock> A, B;
+    timeval StartingTime;
 public:
     void Start();
     float Finish();
 };
 
-#endif	//	TIMER_HPP
+#endif    //    TIMER_HPP
 
 
 
